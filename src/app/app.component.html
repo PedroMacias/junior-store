@@ -7,6 +7,17 @@
 
 </div>
 
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'Shirt'">You selected a Shirt</p>
+  <p *ngSwitchCase="'Hoodie'">You selected a Hoodie</p>
+  <p *ngSwitchCase="'mug'">You selected a mug</p>
+  <p *ngSwitchCase="'pin'">You selected a pin</p>
+  <p *ngSwitchCase="'sticker 1'">You selected sticker 1</p>
+  <p *ngSwitchCase="'sticker 2'">You selected sticker 2</p>
+  <p *ngSwitchDefault>No valid selection</p>
+</div>
+
+
 <button (click)="addItem()">Add item</button>
 
 <ul>
@@ -19,7 +30,5 @@
 </ul>
 
 <div *ngFor="let product of products">
-  {{ product.title }}
-  <img [src]="product.image" alt="">
-  {{ product.price }}
+  <app-product (prductClicked)="clickProduct($event)" [product]="product"></app-product>
 </div>
